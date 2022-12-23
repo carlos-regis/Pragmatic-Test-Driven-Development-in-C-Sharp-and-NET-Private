@@ -25,4 +25,8 @@
     <ProjectReference Include="..\Uqs.Weather\Uqs.Weather.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Stubs\" />
+  </ItemGroup>
+
 </Project>
