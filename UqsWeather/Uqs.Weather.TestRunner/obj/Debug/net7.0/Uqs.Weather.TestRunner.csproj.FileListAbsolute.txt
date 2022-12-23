@@ -1,5 +1,0 @@
-C:\Users\HP\OneDrive\Documents\projects\tdd\Pragmatic-Test-Driven-Development-in-C-Sharp-and-NET\UqsWeather\Uqs.Weather.TestRunner\obj\Debug\net7.0\Uqs.Weather.TestRunner.csproj.AssemblyReference.cache
-C:\Users\HP\OneDrive\Documents\projects\tdd\Pragmatic-Test-Driven-Development-in-C-Sharp-and-NET\UqsWeather\Uqs.Weather.TestRunner\obj\Debug\net7.0\Uqs.Weather.TestRunner.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\HP\OneDrive\Documents\projects\tdd\Pragmatic-Test-Driven-Development-in-C-Sharp-and-NET\UqsWeather\Uqs.Weather.TestRunner\obj\Debug\net7.0\Uqs.Weather.TestRunner.AssemblyInfoInputs.cache
-C:\Users\HP\OneDrive\Documents\projects\tdd\Pragmatic-Test-Driven-Development-in-C-Sharp-and-NET\UqsWeather\Uqs.Weather.TestRunner\obj\Debug\net7.0\Uqs.Weather.TestRunner.AssemblyInfo.cs
-C:\Users\HP\OneDrive\Documents\projects\tdd\Pragmatic-Test-Driven-Development-in-C-Sharp-and-NET\UqsWeather\Uqs.Weather.TestRunner\obj\Debug\net7.0\Uqs.Weather.TestRunner.csproj.CoreCompileInputs.cache
