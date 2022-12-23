@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uqs.Arithmetic", "Uqs.Arithmetic\Uqs.Arithmetic.csproj", "{2470500E-1458-4DD0-ADD2-9A3619A87EE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uqs.Arithmetic.Tests.Unit", "Uqs.Arithmetic.Tests.Unit\Uqs.Arithmetic.Tests.Unit.csproj", "{16061CED-082F-40AF-9846-B1375FC13CA1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2470500E-1458-4DD0-ADD2-9A3619A87EE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2470500E-1458-4DD0-ADD2-9A3619A87EE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2470500E-1458-4DD0-ADD2-9A3619A87EE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2470500E-1458-4DD0-ADD2-9A3619A87EE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16061CED-082F-40AF-9846-B1375FC13CA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16061CED-082F-40AF-9846-B1375FC13CA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16061CED-082F-40AF-9846-B1375FC13CA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16061CED-082F-40AF-9846-B1375FC13CA1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69E1C245-49F3-45ED-8706-72BEC09094E5}
+	EndGlobalSection
+EndGlobal
