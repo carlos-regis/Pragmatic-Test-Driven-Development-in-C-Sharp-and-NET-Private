@@ -6,6 +6,7 @@ public class ClientStub : IClient
 {
     private readonly DateTime _now;
     private readonly IEnumerable<double> _sevenDaysTemps;
+    public Units? LastUnitSpy { get; set; }
 
     public ClientStub(DateTime now, IEnumerable<double> sevenDaysTemps)
     {
@@ -18,6 +19,7 @@ public class ClientStub : IClient
                                               IEnumerable<Excludes> excludes,
                                               Units unit)
     {
+        LastUnitSpy = unit;
         const int DAYS = 7;
         OneCallResponse response = new()
         {
