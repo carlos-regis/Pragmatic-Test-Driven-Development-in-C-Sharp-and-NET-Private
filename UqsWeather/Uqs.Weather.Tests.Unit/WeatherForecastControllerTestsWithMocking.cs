@@ -8,7 +8,7 @@ namespace Uqs.Weather.Tests.Unit;
 public class WeatherForecastControllerTestsWithMocking
 {
     [Fact]
-    public async Task GetRealForecast_RequestsToOpenWeather_MetricUnitIsUsed()
+    public async Task GetRealWeatherForecast_RequestsToOpenWeather_MetricUnitIsUsed()
     {
         // Arrange
         var realWeatherTemps = new double[] { 1, 2, 3, 4, 5, 6, 7 };
@@ -39,7 +39,7 @@ public class WeatherForecastControllerTestsWithMocking
         var controller = new WeatherForecastController(null!, clientMock, null!, null!);
 
         // Act
-        var _ = await controller.GetRealForecast();
+        var _ = await controller.GetRealWeatherForecast();
 
         // Assert
         await clientMock.Received().OneCallAsync(

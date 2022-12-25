@@ -1,5 +1,4 @@
 using AdamTibi.OpenWeather;
-using Uqs.Weather;
 using Uqs.Weather.Wrappers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +11,6 @@ services.AddSingleton<IClient>(_ =>
     HttpClient httpClient = new();
 
     return new Client(apiKey, httpClient);
-
 });
 
 services.AddSingleton<INowWrapper>(_ => new NowWrapper());
