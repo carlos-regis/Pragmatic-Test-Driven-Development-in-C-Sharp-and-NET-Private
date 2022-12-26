@@ -1,10 +1,11 @@
+using Xunit;
 namespace Uqs.Customer.Tests.Unit;
 
 public class ProfileServiceTests
 {
-	[Fact]
-	public void ChangeUsername_NullUsername_ArgumentNullException()
-	{
+    [Fact]
+    public void ChangeUsername_NullUsername_ArgumentNullException()
+    {
         // Arrange
         var sut = new ProfileService();
 
@@ -15,5 +16,61 @@ public class ProfileServiceTests
         var ex = Assert.IsType<ArgumentNullException>(exception);
         Assert.Equal("username", ex.ParamName);
         Assert.StartsWith("Null", ex.Message);
+    }
+
+    [Theory]
+    [InlineData("AnameOf8", true)]
+    [InlineData("NameOfChar12", true)]
+    [InlineData("AnameOfChar13", false)]
+    [InlineData("NameOf7", false)]
+    [InlineData("", false)]
+    public void ChangeUsername_VariousLengthUsernames_ArgumentOutOfRangeExceptionIfInvalid(
+        string username, bool isValid)
+    {
+        // Arrange
+        var sut = new ProfileService();
+
+        // Act
+        var exception = Record.Exception(() => sut.ChangeUsername(username));
+
+        // Assert
+        if (isValid)
+        {
+            Assert.Null(exception);
+        }
+        else
+        {
+            var ex = Assert.IsType<ArgumentOutOfRangeException>(exception);
+            Assert.Equal("username", ex.ParamName);
+            Assert.StartsWith("Length", ex.Message);
+        }
+    }
+
+    [Theory]
+    [InlineData("Letter_123", true)]
+    [InlineData("!The_Start", false)]
+    [InlineData("InThe@Middle", false)]
+    [InlineData("WithDollar$", false)]
+    [InlineData("Space 123", false)]
+    public void ChangeUsername_InvalidCharValidation_ArgumentOutOfRangeException(
+        string username, bool isValid)
+    {
+        // Arrange
+        var sut = new ProfileService();
+
+        // Act
+        var exception = Record.Exception(() => sut.ChangeUsername(username));
+
+        // Assert
+        if (isValid)
+        {
+            Assert.Null(exception);
+        }
+        else
+        {
+            var ex = Assert.IsType<ArgumentOutOfRangeException>(exception);
+            Assert.Equal("username", ex.ParamName);
+            Assert.StartsWith("InvalidChar", ex.Message);
+        }
     }
 }
