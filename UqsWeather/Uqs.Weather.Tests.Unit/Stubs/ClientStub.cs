@@ -1,30 +1,39 @@
 ﻿using AdamTibi.OpenWeather;
 
-namespace Uqs.Weather;
+namespace Uqs.Weather.Tests.Unit.Stubs;
 
 public class ClientStub : IClient
 {
+    private readonly DateTime _now;
+    private readonly IEnumerable<double> _sevenDaysTemps;
+    public Units? LastUnitSpy { get; set; }
+
+    public ClientStub(DateTime now, IEnumerable<double> sevenDaysTemps)
+    {
+        _now = now;
+        _sevenDaysTemps = sevenDaysTemps;
+    }
+
     public Task<OneCallResponse> OneCallAsync(decimal latitude,
                                               decimal longitude,
                                               IEnumerable<Excludes> excludes,
                                               Units unit)
     {
+        LastUnitSpy = unit;
         const int DAYS = 7;
         OneCallResponse response = new()
         {
             Daily = new Daily[DAYS]
         };
 
-        DateTime now = DateTime.Now;
-
         for (int i = 0; i < DAYS; i++)
         {
             response.Daily[i] = new Daily
             {
-                Dt = now.AddDays(i),
+                Dt = _now.AddDays(i),
                 Temp = new Temp()
             };
-            response.Daily[i].Temp.Day = Random.Shared.Next(-20, 55);
+            response.Daily[i].Temp.Day = _sevenDaysTemps.ElementAt(i);
         }
         return Task.FromResult(response);
     }

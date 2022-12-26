@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uqs.Weather", "Uqs.Weather\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uqs.Weather.Tests.Unit", "Uqs.Weather.Tests.Unit\Uqs.Weather.Tests.Unit.csproj", "{15F47AC0-6888-45D8-9507-E7F7D7707560}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uqs.Weather.Tests.Integration", "Uqs.Weather.Tests.Integration\Uqs.Weather.Tests.Integration.csproj", "{11F81B66-2B1F-4816-A1AD-788F7AADE772}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{15F47AC0-6888-45D8-9507-E7F7D7707560}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15F47AC0-6888-45D8-9507-E7F7D7707560}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15F47AC0-6888-45D8-9507-E7F7D7707560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11F81B66-2B1F-4816-A1AD-788F7AADE772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F81B66-2B1F-4816-A1AD-788F7AADE772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11F81B66-2B1F-4816-A1AD-788F7AADE772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F81B66-2B1F-4816-A1AD-788F7AADE772}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

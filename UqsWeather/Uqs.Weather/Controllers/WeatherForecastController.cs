@@ -42,7 +42,7 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet("GetRealWeatherForecast")]
-    public async Task<IEnumerable<WeatherForecast>> GetRealForecast()
+    public async Task<IEnumerable<WeatherForecast>> GetRealWeatherForecast()
     {
         const decimal GREENWICH_LAT = 51.4810m;
         const decimal GREENWICH_LON = 0.0052m;    
@@ -66,7 +66,7 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet("GetRandomWeatherForecast")]
-    public IEnumerable<WeatherForecast> GetRandomForecast()
+    public IEnumerable<WeatherForecast> GetRandomWeatherForecast()
     {
         WeatherForecast[] weatherForecasts = new WeatherForecast[FORECAST_DAYS];
         for (int i = 0; i < weatherForecasts.Length; i++)
