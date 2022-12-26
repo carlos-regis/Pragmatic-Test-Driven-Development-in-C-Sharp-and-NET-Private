@@ -18,7 +18,6 @@ public class WeatherForecastTests
     public async Task GetRealWeatherForecast_Execute_GetNext5Days()
     {
         // Arrange
-        
         var today = DateTime.Now.Date;
         DateTime[] next5Days = new DateTime[FORECAST_DAYS];
         for (int i = 0; i < FORECAST_DAYS; i++)
