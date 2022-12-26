@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uqs.Customer.Tests.Unit", "Uqs.Customer.Tests.Unit\Uqs.Customer.Tests.Unit.csproj", "{8A5B587D-F711-4494-9041-25335C74B759}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uqs.Customer", "Uqs.Customer\Uqs.Customer.csproj", "{674CFF94-387A-4B2D-890A-0B17E27AC0FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A5B587D-F711-4494-9041-25335C74B759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A5B587D-F711-4494-9041-25335C74B759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A5B587D-F711-4494-9041-25335C74B759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A5B587D-F711-4494-9041-25335C74B759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{674CFF94-387A-4B2D-890A-0B17E27AC0FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{674CFF94-387A-4B2D-890A-0B17E27AC0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{674CFF94-387A-4B2D-890A-0B17E27AC0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{674CFF94-387A-4B2D-890A-0B17E27AC0FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
