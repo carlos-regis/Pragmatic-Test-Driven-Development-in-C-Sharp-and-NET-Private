@@ -1,15 +1,15 @@
 ﻿using AdamTibi.OpenWeather;
-using Uqs.Weather.Controllers;
 using NSubstitute;
+using Uqs.Weather.Controllers;
 using Xunit;
 
 namespace Uqs.Weather.Tests.Unit;
 
-public class WeatherForecastControllerTestsWithMocking
+public class WeatherForecastTestsLessReadable
 {
-    [Fact]
-    public async Task GetRealWeatherForecast_NotInterestedInTodayWeather_WFStartsFromNextDay()
-    {
+	[Fact]
+	public async Task GetRealWeatherForecast_NotInterestedInTodayWeather_WFStartsFromNextDay()
+	{
         // Arrange
         const double NEXT_DAY_TEMP = 3.3;
         const double DAY5_TEMP = 7.7;
@@ -21,8 +21,10 @@ public class WeatherForecastControllerTestsWithMocking
             .Returns(_ =>
             {
                 const int DAYS = 7;
-                OneCallResponse res = new OneCallResponse();
-                res.Daily = new Daily[DAYS];
+                OneCallResponse res = new OneCallResponse
+                {
+                    Daily = new Daily[DAYS]
+                };
                 for (int i = 0; i < DAYS; i++)
                 {
                     res.Daily[i] = new Daily
