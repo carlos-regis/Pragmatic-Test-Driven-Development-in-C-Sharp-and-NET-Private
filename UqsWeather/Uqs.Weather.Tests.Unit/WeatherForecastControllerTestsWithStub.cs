@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Uqs.Weather.Tests.Unit;
 
-public class WeatherForecastControllerTests
+public class WeatherForecastControllerTestsWithStub
 {
     [Fact]
     public void ConvertCelsiusToFahrenheit_0Celsius_32Fahrenheit()
