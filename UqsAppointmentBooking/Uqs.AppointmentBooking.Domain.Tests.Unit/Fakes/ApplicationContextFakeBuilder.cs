@@ -13,6 +13,7 @@ public class ApplicationContextFakeBuilder : IDisposable
     private EntityEntry<Employee>? _jessEmp;
     private EntityEntry<Employee>? _edEmp;
     private EntityEntry<Employee>? _oliEmp;
+
     private EntityEntry<Customer>? _paulCust;
     private EntityEntry<Service>? _mensCut;
     private EntityEntry<Appointment>? _appointmentForPaulWithTom;
@@ -36,7 +37,7 @@ public class ApplicationContextFakeBuilder : IDisposable
 
     public ApplicationContextFakeBuilder WithSingleShiftForTom(DateTime from, DateTime to)
     {
-        _context.Add(new Shift { Employee = _tomEmp.Entity, Starting = from, Ending = to });
+        _context.Add(new Shift { Employee = _tomEmp?.Entity, Starting = from, Ending = to });
         return this;
     }
 
@@ -63,9 +64,9 @@ public class ApplicationContextFakeBuilder : IDisposable
     {
         _appointmentForPaulWithTom = _context.Add(new Appointment
         {
-            Service = _mensCut.Entity,
-            Customer = _paulCust.Entity,
-            Employee = _tomEmp.Entity,
+            Service = _mensCut?.Entity,
+            Customer = _paulCust?.Entity,
+            Employee = _tomEmp?.Entity,
             Starting = from,
             Ending = to
         });
@@ -76,18 +77,25 @@ public class ApplicationContextFakeBuilder : IDisposable
     {
         var mensCut = _context.Add(new Service
         { Name = "Men's Cut", AppointmentTimeSpanInMin = 30, Price = 23, IsActive = true });
+
         var mensClipperScissor = _context.Add(new Service
         { Name = "Men - Clipper & Scissor Cut", AppointmentTimeSpanInMin = 30, Price = 23, IsActive = true });
+
         var mensBeardTrim = _context.Add(new Service
         { Name = "Men - Beard Trim", AppointmentTimeSpanInMin = 10, Price = 10, IsActive = true });
+
         var mensColoring = _context.Add(new Service
         { Name = "Men - Full Head Coloring", AppointmentTimeSpanInMin = 70, Price = 60, IsActive = true });
+
         var mensPerm = _context.Add(new Service
         { Name = "Men - Perm", AppointmentTimeSpanInMin = 100, Price = 90, IsActive = true });
+
         var mensKeratin = _context.Add(new Service
         { Name = "Men - Keratin Treatment", AppointmentTimeSpanInMin = 120, Price = 100, IsActive = false });
+
         var boysCut = _context.Add(new Service
         { Name = "Boys - Cut", AppointmentTimeSpanInMin = 30, Price = 15, IsActive = true });
+
         var girlsCut = _context.Add(new Service
         { Name = "Girls - Cut", AppointmentTimeSpanInMin = 30, Price = 17, IsActive = true });
 
@@ -102,7 +110,16 @@ public class ApplicationContextFakeBuilder : IDisposable
 
     public void Dispose()
     {
-        _context.Database.EnsureDeleted();
-        _context.Dispose();
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposing && _context is not null)
+        {
+            _context.Database.EnsureDeleted();
+            _context.Dispose();
+        }
     }
 }
