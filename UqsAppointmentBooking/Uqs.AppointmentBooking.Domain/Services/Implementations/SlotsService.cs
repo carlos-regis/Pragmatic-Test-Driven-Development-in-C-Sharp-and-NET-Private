@@ -3,7 +3,6 @@ using Microsoft.Extensions.Options;
 using Uqs.AppointmentBooking.Domain.Database;
 using Uqs.AppointmentBooking.Domain.DomainObjects;
 using Uqs.AppointmentBooking.Domain.Report;
-using Uqs.AppointmentBooking.Domain.Services.ConfigProperties;
 using Uqs.AppointmentBooking.Domain.Services.Interfaces;
 
 namespace Uqs.AppointmentBooking.Domain.Services.Implementations;
@@ -88,13 +87,20 @@ public class SlotsService : ISlotsService
             return new Slots(Array.Empty<DaySlots>());
         }
 
+        var uniqueDays = timeIntervals
+            .DistinctBy(x => x.From.Date)
+            .Select(x => x.From.Date);
+
         List<DaySlots> daySlotsList = new();
 
-        var startTimes = timeIntervals.Where(x => x.From.Date == _now.Date)
-            .Select(x => x.From)
-            .ToArray();
-        DaySlots daySlots = new(_now, startTimes);
-        daySlotsList.Add(daySlots);
+        foreach (var day in uniqueDays)
+        {
+            var startTimes = timeIntervals.Where(x => x.From.Date == day.Date)
+                .Select(x => x.From)
+                .ToArray();
+            var daySlots = new DaySlots(day, startTimes);
+            daySlotsList.Add(daySlots);
+        }
 
         Slots slots = new(daySlotsList.ToArray());
 
@@ -110,6 +116,6 @@ public class SlotsService : ISlotsService
         return new DateTime((dt.Ticks + ticksInSpan - 1)
             / ticksInSpan * ticksInSpan, dt.Kind);
     }
-    private static bool IsPeriodIntersecting(DateTime fromT1, DateTime toT1, DateTime fromT2, DateTime toT2) =>
-        fromT1 < toT2 && fromT2 < toT1;
+    private static bool IsPeriodIntersecting(DateTime fromT1, DateTime toT1, DateTime fromT2, DateTime toT2)
+        => fromT1 < toT2 && fromT2 < toT1;
 }

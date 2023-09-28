@@ -1,4 +1,4 @@
-﻿namespace Uqs.AppointmentBooking.Domain.Services.ConfigProperties;
+﻿namespace Uqs.AppointmentBooking.Domain;
 
 public class ApplicationSettings
 {

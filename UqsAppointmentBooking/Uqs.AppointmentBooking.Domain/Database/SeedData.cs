@@ -4,7 +4,6 @@ using Uqs.AppointmentBooking.Domain.DomainObjects;
 
 namespace Uqs.AppointmentBooking.Domain.Database;
 
-
 public static class SeedData
 {
     public static async Task Initialize(IServiceProvider serviceProvider)
@@ -74,18 +73,25 @@ public static class SeedData
         // Services
         var mensCut = await context.AddAsync(new Service
         { Name = "Men's Cut", AppointmentTimeSpanInMin = 30, Price = 23, IsActive = true });
+
         var mensClipperScissor = await context.AddAsync(new Service
         { Name = "Men - Clipper & Scissor Cut", AppointmentTimeSpanInMin = 30, Price = 23, IsActive = true });
+
         var mensBeardTrim = await context.AddAsync(new Service
         { Name = "Men - Beard Trim", AppointmentTimeSpanInMin = 10, Price = 10, IsActive = true });
+
         var mensColoring = await context.AddAsync(new Service
         { Name = "Men - Full Head Coloring", AppointmentTimeSpanInMin = 70, Price = 60, IsActive = true });
+
         var mensPerm = await context.AddAsync(new Service
         { Name = "Men - Perm", AppointmentTimeSpanInMin = 100, Price = 90, IsActive = true });
+
         var mensKeratin = await context.AddAsync(new Service
         { Name = "Men - Keratin Treatment", AppointmentTimeSpanInMin = 120, Price = 100, IsActive = false });
+
         var boysCut = await context.AddAsync(new Service
         { Name = "Boys - Cut", AppointmentTimeSpanInMin = 30, Price = 15, IsActive = true });
+
         var girlsCut = await context.AddAsync(new Service
         { Name = "Girls - Cut", AppointmentTimeSpanInMin = 30, Price = 17, IsActive = true });
 
@@ -95,6 +101,6 @@ public static class SeedData
     private static DateTime SetTime(DateTime date, string time)
     {
         byte[] hourMin = time.Split(":").Select(x => byte.Parse(x)).ToArray();
-        return new DateTime(date.Year, date.Month, date.Day, hourMin[0], hourMin[1], 0, DateTimeKind.Utc);
+        return new DateTime(date.Year, date.Month, date.Day, hourMin[0], hourMin[1], 0, DateTimeKind.Local);
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using NSubstitute;
 using System.Globalization;
-using Uqs.AppointmentBooking.Domain.Services.ConfigProperties;
 using Uqs.AppointmentBooking.Domain.Services.Implementations;
 using Uqs.AppointmentBooking.Domain.Services.Interfaces;
 using Uqs.AppointmentBooking.Domain.Tests.Unit.Fakes;
