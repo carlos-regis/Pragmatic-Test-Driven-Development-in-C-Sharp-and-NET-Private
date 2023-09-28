@@ -5,7 +5,7 @@ namespace Uqs.AppointmentBooking.Domain.Tests.Unit.Services;
 
 public class ServicesServiceTests : IDisposable
 {
-    private readonly ApplicationContextFakeBuilder _ctxBuilder = new();
+    private readonly ApplicationContextFakeBuilder _contextBuilder = new();
     private ServicesService? _sut;
 
     public void Dispose()
@@ -16,9 +16,9 @@ public class ServicesServiceTests : IDisposable
 
     protected virtual void Dispose(bool disposing)
     {
-        if (disposing && _ctxBuilder is not null)
+        if (disposing && _contextBuilder is not null)
         {
-            _ctxBuilder.Dispose();
+            _contextBuilder.Dispose();
         }
     }
 
@@ -26,7 +26,7 @@ public class ServicesServiceTests : IDisposable
     public async Task GetActiveServices_NoServiceInTheSystem_NoServices()
     {
         // Arrange
-        var ctx = _ctxBuilder.Build();
+        var ctx = _contextBuilder.Build();
         _sut = new ServicesService(ctx);
 
         // Act
@@ -40,7 +40,7 @@ public class ServicesServiceTests : IDisposable
     public async Task GetActiveServices_TwoActiveOneInactiveService_TwoServices()
     {
         // Arrange
-        var ctx = _ctxBuilder
+        var ctx = _contextBuilder
             .WithSingleService(true)
             .WithSingleService(true)
             .WithSingleService(false)
